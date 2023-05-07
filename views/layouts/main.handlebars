@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Tech Blog</title>
+        <link rel="stylesheet" href="../../public/css/jass.css">
+        <link rel="stylesheet" href="../../public/css/style.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>Home</li>
+                    <li>Dashboard</li>
+                    <li>
+                        <!-- Link in navbar differes depending on whether or not the user is logged in -->
+                        {{#if logged_in}}
+                        Login
+                        {{else}}
+                        Logout
+                        {{/if}}
+                    </li>
+                </ul>
+            </nav>
+            <h1>The Tech Blog</h1>
+        </header>
+        <main>
+            <!-- Renders the main section of the body -->
+            {{{body}}}
+        </main>
+    </body>
+</html>
