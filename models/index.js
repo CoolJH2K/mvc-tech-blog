@@ -1,47 +1,17 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+// Require User.js and Project.js
+const User = require("./User");
+const Project = require("./Project");
 
-class Project extends Model {}
+// Connect User to Project
+User.hasMany(Project, {
+    foreignKey: "user_id",
+    onDelete: "CASCADE"
+});
 
-Project.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
-  },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'project',
-  }
-);
+// Connect Project to User
+Project.belongsTo(User, {
+    foreignKey: "user_id"
+});
 
-module.exports = Project;
+// Export modules
+module.exports = {User, Project};
