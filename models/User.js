@@ -1,7 +1,7 @@
 // Require sequelize and bcrypt
-const {Model, DataTypes} = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+const {Model, DataTypes} = require("sequelize");
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection");
 
 // Create User class
 class User extends Model {
@@ -55,7 +55,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: "user",
   }
 );
 
