@@ -1,8 +1,8 @@
 // Require Sequelize and Dotenv
-const Sequlize = require("sequelize");
+const Sequelize = require("sequelize");
 require("dotenv").config();
 
-let sequelize
+let sequelize;
 
 // Set up sequelize module
 if (process.env.JAWSDB_URL) {
